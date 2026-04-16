@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Personal Todo OS</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <header>
+      <h1>My Personal Todo OS</h1>
+      <p class="subtitle">Built at Localhost to Live — now living on the internet.</p>
+    </header>
+
+    <section class="add-todo">
+      <form id="todo-form">
+        <input
+          id="todo-input"
+          type="text"
+          placeholder="What's next?"
+          autocomplete="off"
+          required
+        />
+        <button type="submit">Add</button>
+      </form>
+    </section>
+
+    <section class="todos">
+      <ul id="todo-list"></ul>
+      <p id="empty-state" class="empty">No todos yet. Ask Claude Code to populate them from your /context folder.</p>
+    </section>
+
+    <footer>
+      <span id="count">0 items</span>
+      <button id="clear-completed" type="button">Clear completed</button>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
