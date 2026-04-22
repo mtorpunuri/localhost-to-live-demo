@@ -41,6 +41,7 @@ Then they push to GitHub and deploy on Vercel.
 - `styles.css` — the look.
 - `context/` — where they drop personal files.
 - `context/TEMPLATE-goals.md` — a goals template they can copy and fill in.
+- `context/SAMPLE-goals.md`, `SAMPLE-notes.txt`, `SAMPLE-meeting-notes.md`, `SAMPLE-reminders.txt` — first-year Hogwarts sample context. If a participant has nothing to drop in, they rename these (drop the `SAMPLE-` prefix) and run Sprint 2 against them.
 - `README.md` — has the full workshop walkthrough and the exact prompts.
 
 ## Architecture reminders
@@ -52,17 +53,30 @@ Then they push to GitHub and deploy on Vercel.
 
 ## Prompts they'll likely paste
 
-Sprint 2 populate prompt:
-> Read every file in the `context/` folder. Extract 8–12 real, actionable
-> todos from my actual life. Replace the `STARTER_TODOS` array in `app.js`
-> with those todos. Keep the same data structure. Preserve existing code
-> style.
+Sprint 2 populate prompt (they pick one mode — Create is the default on the follow-along page):
 
-Sprint 3 UI change prompt (they pick one):
+- **Create** (default) — generate new todos from context:
+  > Read every file in the `context/` folder. Extract 8–12 real, actionable todos from my actual life. Replace the `STARTER_TODOS` array in `app.js` with those todos. Keep the same data structure. Preserve existing code style.
+
+- **Decide** — rank what they already have:
+  > Read every file in `context/`. Rank the top 8 things I should focus on this week and write them as `STARTER_TODOS` — most important first.
+
+- **Act** — turn decisions into concrete next steps:
+  > Read every file in `context/`. For every open question or vague goal I've been putting off, write the todo as the concrete next step I should take — not the question itself.
+
+Sprint 3 UI change prompt (they pick a feature OR a theme):
+
+Features:
 > Add a dark mode toggle, saved to localStorage.
 > Group todos into "Done" and "Not Done" sections with a header between.
 > Add a colored priority dot (low / medium / high) with a dropdown.
 > Add a "due this week" filter.
+
+Themes (commit to the vibe — colors, fonts, shapes, copy):
+> Jungle — greens, vines, organic shapes, playful header.
+> Clown — circus colors, round buttons, playful fonts.
+> Y2K — chrome, Comic Sans, early-2000s web vibe.
+> Terminal green — monospace, black background, phosphor green text.
 
 ## What NOT to do
 

@@ -1,0 +1,16 @@
+— Potions essay (12 inches, properties of moonstone) — due Friday
+— Return "Great Wizards of the Twentieth Century" to the library before Madam Pince curses me
+— Transfiguration practice: matchstick → needle (still looks like a matchstick with a point)
+— Quidditch practice Tuesday 7am
+— Quidditch practice Thursday 7am
+— Meet Hermione in the library, 4pm, Flamel research
+— Astronomy tower Wednesday 11:45pm (bring cloak — it's freezing)
+— Return the Remembrall to Neville (been in my trunk for a month)
+— Tell McGonagall I'm staying at Hogwarts for Christmas
+— Write back to Hagrid
+— Hide invisibility cloak somewhere better than under the pillow (Seamus is nosy)
+— Stay out of Malfoy's way this week
+— Keep NOT owling Aunt Petunia
+
+---
+Rename this file to reminders.txt (drop the SAMPLE- prefix) before Sprint 2 if you want Claude Code to treat it as your real context.
