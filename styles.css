@@ -1,17 +1,26 @@
 :root {
-  --teal: #2dd4bf;
-  --orange: #ff6600;
-  --ink: #111;
-  --paper: #fafaf7;
-  --muted: #999;
-  --line: #e5e5e5;
+  --circus-red: #e63946;
+  --circus-yellow: #ffd23f;
+  --circus-blue: #1d4e89;
+  --circus-cream: #fff8e7;
+  --ink: #1a1a1a;
+  --muted: #8a7a5c;
+  --line: #f0d878;
+  --priority-low: #b0b0b0;
+  --priority-medium: #ffd23f;
+  --priority-high: #e63946;
 }
 
 * { box-sizing: border-box; }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: var(--paper);
+  font-family: "Fredoka", -apple-system, BlinkMacSystemFont, sans-serif;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      var(--circus-cream) 0 24px,
+      #fff3d0 24px 48px
+    );
   color: var(--ink);
   margin: 0;
   padding: 40px 20px;
@@ -19,67 +28,80 @@ body {
 }
 
 main {
-  max-width: 560px;
+  max-width: 600px;
   margin: 0 auto;
+  background: var(--circus-cream);
+  border: 4px solid var(--circus-red);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 8px 0 var(--circus-blue);
 }
 
 header {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 h1 {
+  font-family: "Bungee", "Fredoka", sans-serif;
   font-size: 2rem;
   margin: 0 0 8px;
+  color: var(--circus-red);
+  letter-spacing: 1px;
 }
 
 .subtitle {
-  color: var(--muted);
+  color: var(--circus-blue);
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .add-todo form {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   margin-bottom: 24px;
 }
 
 #todo-input {
   flex: 1;
-  padding: 12px 16px;
+  padding: 12px 18px;
   font-size: 1rem;
-  border: 2px solid var(--line);
-  border-radius: 8px;
+  font-family: inherit;
+  border: 3px solid var(--circus-blue);
+  border-radius: 999px;
   background: white;
 }
 
 #todo-input:focus {
   outline: none;
-  border-color: var(--teal);
+  border-color: var(--circus-red);
 }
 
 button {
-  padding: 12px 20px;
+  padding: 12px 22px;
   font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 8px;
+  font-weight: 700;
+  font-family: inherit;
+  border: 3px solid var(--ink);
+  border-radius: 999px;
   cursor: pointer;
-  background: var(--teal);
-  color: white;
+  background: var(--circus-yellow);
+  color: var(--ink);
+  transition: transform 0.15s ease;
 }
 
-button:hover { opacity: 0.9; }
+button:hover {
+  transform: translateY(-2px) rotate(-2deg);
+}
 
 #clear-completed {
-  background: transparent;
-  color: var(--muted);
-  padding: 4px 8px;
+  background: white;
+  color: var(--circus-blue);
+  padding: 6px 14px;
   font-size: 0.85rem;
+  border-width: 2px;
 }
-
-#clear-completed:hover { color: var(--orange); }
 
 ul {
   list-style: none;
@@ -91,11 +113,16 @@ li {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px 16px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  margin-bottom: 8px;
+  padding: 14px 18px;
+  border: 3px solid var(--circus-blue);
+  border-radius: 14px;
+  margin-bottom: 10px;
   background: white;
+  transition: transform 0.15s ease;
+}
+
+li:hover {
+  transform: translateY(-2px) rotate(-0.5deg);
 }
 
 li.done .text {
@@ -107,19 +134,50 @@ li.done .text {
   flex: 1;
 }
 
-.delete {
-  background: transparent;
-  color: var(--muted);
-  padding: 4px 8px;
-  font-size: 1.2rem;
+.priority {
+  appearance: none;
+  -webkit-appearance: none;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 4px 10px 4px 24px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: 8px center;
+  background-size: 10px 10px;
+  cursor: pointer;
 }
 
-.delete:hover { color: var(--orange); }
+.priority-low {
+  background-image: radial-gradient(circle, var(--priority-low) 60%, transparent 62%);
+}
+
+.priority-medium {
+  background-image: radial-gradient(circle, var(--priority-medium) 60%, transparent 62%);
+}
+
+.priority-high {
+  background-image: radial-gradient(circle, var(--priority-high) 60%, transparent 62%);
+}
+
+.delete {
+  background: var(--circus-red);
+  color: white;
+  border: 2px solid var(--ink);
+  padding: 2px 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.delete:hover { background: var(--ink); }
 
 .empty {
   text-align: center;
-  color: var(--muted);
+  color: var(--circus-blue);
   padding: 32px;
+  font-weight: 500;
 }
 
 footer {
@@ -128,7 +186,8 @@ footer {
   align-items: center;
   margin-top: 16px;
   padding-top: 16px;
-  border-top: 1px solid var(--line);
-  font-size: 0.85rem;
-  color: var(--muted);
+  border-top: 3px dashed var(--circus-red);
+  font-size: 0.9rem;
+  color: var(--circus-blue);
+  font-weight: 500;
 }
