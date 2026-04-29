@@ -1,40 +1,61 @@
 :root {
-  --circus-red: #e63946;
-  --circus-yellow: #ffd23f;
-  --circus-blue: #1d4e89;
-  --circus-cream: #fff8e7;
-  --ink: #1a1a1a;
-  --muted: #8a7a5c;
-  --line: #f0d878;
-  --priority-low: #b0b0b0;
-  --priority-medium: #ffd23f;
-  --priority-high: #e63946;
+  --jungle-deep: #1b4332;
+  --jungle-leaf: #2d6a4f;
+  --jungle-lime: #95d5b2;
+  --jungle-moss: #b7e4c7;
+  --jungle-bark: #6b4f3a;
+  --jungle-cream: #f4f8ed;
+  --ink: #122d1f;
+  --muted: #6c7e74;
+  --priority-low: #b7e4c7;
+  --priority-medium: #ffd166;
+  --priority-high: #d62828;
 }
 
 * { box-sizing: border-box; }
 
 body {
-  font-family: "Fredoka", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Nunito", -apple-system, BlinkMacSystemFont, sans-serif;
   background:
-    repeating-linear-gradient(
-      135deg,
-      var(--circus-cream) 0 24px,
-      #fff3d0 24px 48px
-    );
+    radial-gradient(circle at 10% 20%, var(--jungle-lime) 0 12px, transparent 14px),
+    radial-gradient(circle at 80% 60%, var(--jungle-moss) 0 18px, transparent 20px),
+    radial-gradient(circle at 30% 80%, var(--jungle-lime) 0 10px, transparent 12px),
+    radial-gradient(circle at 90% 15%, var(--jungle-moss) 0 14px, transparent 16px),
+    linear-gradient(160deg, #d8f3dc 0%, #b7e4c7 100%);
   color: var(--ink);
   margin: 0;
   padding: 40px 20px;
   line-height: 1.5;
+  min-height: 100vh;
 }
 
 main {
   max-width: 600px;
   margin: 0 auto;
-  background: var(--circus-cream);
-  border: 4px solid var(--circus-red);
-  border-radius: 16px;
-  padding: 28px;
-  box-shadow: 0 8px 0 var(--circus-blue);
+  background: var(--jungle-cream);
+  border: 3px solid var(--jungle-deep);
+  border-radius: 24px 80px 24px 80px;
+  padding: 32px;
+  box-shadow: 0 10px 0 var(--jungle-leaf);
+  position: relative;
+}
+
+main::before {
+  content: "🌿";
+  position: absolute;
+  top: -18px;
+  left: 24px;
+  font-size: 2rem;
+  transform: rotate(-20deg);
+}
+
+main::after {
+  content: "🍃";
+  position: absolute;
+  bottom: -18px;
+  right: 24px;
+  font-size: 2rem;
+  transform: rotate(20deg);
 }
 
 header {
@@ -43,18 +64,19 @@ header {
 }
 
 h1 {
-  font-family: "Bungee", "Fredoka", sans-serif;
-  font-size: 2rem;
+  font-family: "Fraunces", "Nunito", serif;
+  font-size: 2.1rem;
   margin: 0 0 8px;
-  color: var(--circus-red);
-  letter-spacing: 1px;
+  color: var(--jungle-deep);
+  letter-spacing: 0.5px;
 }
 
 .subtitle {
-  color: var(--circus-blue);
+  color: var(--jungle-leaf);
   margin: 0;
   font-size: 1rem;
   font-weight: 500;
+  font-style: italic;
 }
 
 .add-todo form {
@@ -68,14 +90,15 @@ h1 {
   padding: 12px 18px;
   font-size: 1rem;
   font-family: inherit;
-  border: 3px solid var(--circus-blue);
+  border: 2px solid var(--jungle-leaf);
   border-radius: 999px;
   background: white;
 }
 
 #todo-input:focus {
   outline: none;
-  border-color: var(--circus-red);
+  border-color: var(--jungle-deep);
+  box-shadow: 0 0 0 3px var(--jungle-moss);
 }
 
 button {
@@ -83,24 +106,30 @@ button {
   font-size: 1rem;
   font-weight: 700;
   font-family: inherit;
-  border: 3px solid var(--ink);
+  border: none;
   border-radius: 999px;
   cursor: pointer;
-  background: var(--circus-yellow);
-  color: var(--ink);
-  transition: transform 0.15s ease;
+  background: var(--jungle-leaf);
+  color: white;
+  transition: transform 0.15s ease, background 0.15s ease;
 }
 
 button:hover {
-  transform: translateY(-2px) rotate(-2deg);
+  transform: translateY(-2px);
+  background: var(--jungle-deep);
 }
 
 #clear-completed {
-  background: white;
-  color: var(--circus-blue);
+  background: transparent;
+  color: var(--jungle-bark);
   padding: 6px 14px;
   font-size: 0.85rem;
-  border-width: 2px;
+  border: 2px solid var(--jungle-bark);
+}
+
+#clear-completed:hover {
+  background: var(--jungle-bark);
+  color: white;
 }
 
 ul {
@@ -114,15 +143,21 @@ li {
   align-items: center;
   gap: 12px;
   padding: 14px 18px;
-  border: 3px solid var(--circus-blue);
+  border: 2px solid var(--jungle-moss);
+  border-left: 6px solid var(--jungle-leaf);
   border-radius: 14px;
   margin-bottom: 10px;
   background: white;
-  transition: transform 0.15s ease;
+  transition: transform 0.15s ease, border-color 0.15s ease;
 }
 
 li:hover {
-  transform: translateY(-2px) rotate(-0.5deg);
+  transform: translateX(4px);
+  border-color: var(--jungle-leaf);
+}
+
+li.done {
+  background: var(--jungle-cream);
 }
 
 li.done .text {
@@ -141,13 +176,14 @@ li.done .text {
   font-weight: 700;
   font-size: 0.8rem;
   padding: 4px 10px 4px 24px;
-  border: 2px solid var(--ink);
+  border: 2px solid var(--jungle-leaf);
   border-radius: 999px;
   background-color: white;
   background-repeat: no-repeat;
   background-position: 8px center;
   background-size: 10px 10px;
   cursor: pointer;
+  color: var(--ink);
 }
 
 .priority-low {
@@ -163,21 +199,23 @@ li.done .text {
 }
 
 .delete {
-  background: var(--circus-red);
-  color: white;
-  border: 2px solid var(--ink);
-  padding: 2px 10px;
-  font-size: 1.1rem;
+  background: transparent;
+  color: var(--muted);
+  padding: 4px 10px;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
-.delete:hover { background: var(--ink); }
+.delete:hover {
+  background: var(--priority-high);
+  color: white;
+}
 
 .empty {
   text-align: center;
-  color: var(--circus-blue);
+  color: var(--jungle-leaf);
   padding: 32px;
-  font-weight: 500;
+  font-style: italic;
 }
 
 footer {
@@ -186,8 +224,8 @@ footer {
   align-items: center;
   margin-top: 16px;
   padding-top: 16px;
-  border-top: 3px dashed var(--circus-red);
+  border-top: 2px dashed var(--jungle-leaf);
   font-size: 0.9rem;
-  color: var(--circus-blue);
-  font-weight: 500;
+  color: var(--jungle-deep);
+  font-weight: 700;
 }

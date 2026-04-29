@@ -79,7 +79,7 @@ function render() {
     });
   }
 
-  countEl.textContent = `${todos.length} act${todos.length === 1 ? "" : "s"} in the show`;
+  countEl.textContent = `${todos.length} vine${todos.length === 1 ? "" : "s"}`;
   saveTodos(todos);
 }
 
